@@ -1,86 +1,106 @@
 <!doctype html>
 <html lang="he">
-  <head>
-    <title>מחשבון ציון סופי</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    
+<head>
+	<title>מחשבון ציון סופי</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <style>
-
-  </style>
-<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
 
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  </head>
-  <body>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<style>
+
+	</style>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+	</script>
+
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<body>
 
 
 
-<div class="container text-center">
-<h1>מחשבון חישוב ציון סופי של קורס</h1>
-<br>
-    <div class="row">
-        <div class="col-md-4">
-          <form class="form border p-3">
-              <div class="form-group">
-                <input type="text" class="form-control form-control-lg" name="name_grade" placeholder="הכנס שם מרכיב ציון" [(ngModel)]="m.new_item.grade_component">
+	<div class="container text-center">
+		<h1>מחשבון חישוב ציון סופי של קורס</h1>
+		<br>
+		<div class="row">
+			<div class="col-md-4">
+				<form class="form border p-3">
+					<div class="form-group">
+						<input type="text" class="form-control form-control-lg" name="name_grade" placeholder="הכנס שם מרכיב ציון" [(ngModel)]="m.new_item.grade_component">
               </div>
-              <div class="form-group">
-                <input type="number" min="1" max="100" class="form-control form-control-lg mt-2" name="w_grade" placeholder="הכנס משקל מרכיב" [(ngModel)]="m.new_item.weight">
-              </div>
-              <div class="form-group">
-                <input type="number" min="1" max="100" class="form-control form-control-lg mt-2" name="grade" placeholder="הכנס את הציון" [(ngModel)]="m.new_item.grade">
-              </div>
-
-              <div class="form-group">
-                <button type="button" class="btn btn-primary btn-lg" (click)="m.add_c()">הוסף</button>
-                <button type="button" class="btn btn-danger btn-lg mr-3" (click)="m.items=[]">אפס נתונים</button>
-              </div>
-              <hr>
-              <button type="button" class="btn btn-info" (click)="m.show_rst()">חשב ציון סופי</button>
-          </form>
-        </div><!-- end of col -->
-
-        <div class="col-md-8">
-          <h3>מרכיבי הציון <i *ngIf="m.items.length!=0">({{m.items.length}})</i></h3>
-
-            <b *ngIf="m.items.length==0">הכנס מרכיבי ציון על מנת להמשיך..</b>
-
-          <table class="table table-striped">
-            <tbody>
-          <tr *ngFor="let item of m.items; index as i;">
-            <td>{{item.grade_component}}</td>
-            <td>{{item.weight}}%</td>
-            <td>{{item.grade}}</td>
-            <td>
-              <button class="btn btn-danger" (click)="this.m.del_g(i)"><i class="fas fa-minus-circle"></i></button>
-            </td>
-          </tr>
-            </tbody>
-          </table>
-        </div><!-- end of col -->
 
 
+						<div class="form-group row">
+							<div class="col">
+								<input type="number" min="1" max="100" class="form-control form-control-lg mt-2" name="w_grade" placeholder="הכנס משקל מרכיב" [(ngModel)]="m.new_item.weight">
+                </div>
+								<div class="col">
+									<input type="number" min="1" max="100" class="form-control form-control-lg mt-2" name="grade" placeholder="הכנס את הציון" [(ngModel)]="m.new_item.grade">
+                </div>
+								</div>
+
+								<div class="form-group">
+
+								</div>
+
+								<div class="form-group">
+									<button type="button" class="btn btn-primary btn-lg" (click)="m.add_c()">הוסף</button>
+									<button type="button" class="btn btn-danger btn-lg mr-3" (click)="m.items=[]">אפס נתונים</button>
+								</div>
+								<hr>
+								<button type="button" class="btn btn-info" (click)="m.show_rst()">חשב ציון סופי</button>
+				</form>
+			</div><!-- end of col -->
+
+			<div class="col-md-8">
+				<h3>מרכיבי הציון <i *ngIf="m.items.length!=0">({{m.items.length}})</i></h3>
+
+				<b *ngIf="m.items.length==0">הכנס מרכיבי ציון על מנת להמשיך..</b>
+
+				<table class="table table-striped">
+					<tbody>
+						<tr *ngFor="let item of m.items; index as i;">
+							<td>{{item.grade_component}}</td>
+							<td>{{item.weight}}%</td>
+							<td>{{item.grade}}</td>
+							<td>
+								<button class="btn btn-danger" (click)="this.m.del_g(i)"><i class="fas fa-minus-circle"></i></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!-- end of col -->
 
 
 
-    </div><!-- end of row -->
-    <footer>
-      פותח על ידי <a href="https://www.linkedin.com/in/barak-gotesman/" target="blank">ברק גוטסמן <i class="fab fa-linkedin"></i></a>
-    </footer>
 
-</div><!-- end of container -->
+
+		</div><!-- end of row -->
+		<footer>
+			פותח על ידי <a href="https://www.linkedin.com/in/barak-gotesman/" target="blank">ברק גוטסמן
+				<i class="fab fa-linkedin"></i></a>
+		</footer>
+
+	</div><!-- end of container -->
 
 </body>
+
 </html>
